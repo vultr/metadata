@@ -87,3 +87,11 @@ func TestMetadata(t *testing.T) {
 	}
 
 }
+
+func TestRegionCodeToID(t *testing.T) {
+	regionID := RegionCodeToID("EWR")
+
+	if regionID != "1" {
+		t.Error("regionID does not match up")
+	}
+}

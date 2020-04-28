@@ -60,9 +60,12 @@ func (c *Client) doRequest(uri string, meta *MetaData) error {
 	if err != nil {
 		return err
 	}
-
-	if err := json.Unmarshal(body, meta); err != nil {
-		return err
+	if resp.StatusCode == http.StatusOK {
+		if err := json.Unmarshal(body, meta); err != nil {
+			return err
+		}
+	} else {
+		return fmt.Errorf("error : %s", string(body))
 	}
 
 	return nil
@@ -76,4 +79,28 @@ func (c *Client) SetBaseURL(baseUrl string) error {
 
 	c.baseUrl = updatedURL
 	return nil
+}
+
+// RegionCodeToID takes in a region code and returns back the region ID
+func RegionCodeToID(code string) string {
+	regions := map[string]string{
+		"EWR": "1",
+		"ORD": "2",
+		"DFW": "3",
+		"SEA": "4",
+		"LAX": "5",
+		"ATL": "6",
+		"AMS": "7",
+		"LHR": "8",
+		"FRA": "9",
+		"SJC": "12",
+		"SYD": "19",
+		"YTO": "22",
+		"CDG": "24",
+		"NRT": "25",
+		"MIA": "39",
+		"SGP": "40",
+	}
+
+	return regions[code]
 }
