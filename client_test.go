@@ -33,7 +33,7 @@ func TestMetadata(t *testing.T) {
     },
     "hostname": "vultr-guest",
     "instanceid": "a747bfz6385e",
-	"instance-v2-id": "2a027932-29bf-4583-b635-4643e5cee2b5"
+	"instance-v2-id": "2a027932-29bf-4583-b635-4643e5cee2b5",
     "public-keys": "ssh-rsaroot@example2",
     "region": {
         "regioncode": "EWR"
