@@ -1,6 +1,6 @@
 ## v1.0.3 (2021-03-25)
 ### Changes
-* Changed `	PublicKeys` from string to array
+* Changed `PublicKeys` from string to array
 
 ## v1.0.2 (2020-12-10)
 ### Changes
